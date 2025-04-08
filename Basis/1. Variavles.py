@@ -1,26 +1,27 @@
-# variables
+# 1. Variables
 message = 'hello python'
 print(message)
-message = 'nihao'
-print(message)
-# 命名规则：只包含数字字母下划线，不能用数字开头，其他两个可以开头，不能包含空格，用下划线分割，不得用函数命名
-# 练习：类的模块的继承与不同模块的传递：变量三次更新：小明小李小张
-# 2、字符串：前端用户输入，日志文件，网络爬虫，数据库，字符串例如‘我的名字是李华’，‘my name is lihua’，字符串单双引号都可以进行圈注。双引号与单引号都能进行声明，双引号中有单引号或者单引号中有双引号都可以，不能单引号双引号同类叠加使用
-# 错误示例：‘我的名字是‘黎明’’
-# 更改字符串大小写方法：.upper()  .lower()
-sentence = 'My name is Liming'
+
+
+# 2. Rules about defination：only contain numbers, words, and underline; numbers can not used in head position
+
+
+# 3. How to change words in upper or lower : .upper()  .lower()
+sentence = 'My name is Tom'
 sentence.upper()
 print(sentence.upper())
+
 sentence.lower()
-print(sentence.lower()) #用了函数要一起输出
-# 在字符串中使用变量的方法 f'{},{}' 拼装法，也即字符串的格式化
-name = '黎明'
-country = '香港'
-print(f'我的名字是{name},我来自于{country},请多多关照吧')
-# 或者命名输出
-message = f'我的名字是{name},我来自于{country},请多多关照吧'
-print(message)
-# 字符串中使用空白符号：\t制表符（空格），\n换行符
+print(sentence.lower())
+
+
+# 4. Use variables in str : f'{variable1},{variable2}' 
+name = 'Tom'
+country = 'USA'
+print(f'My name is {name}, I come from {country}.')
+
+
+# 5. 字符串中使用空白符号：\t制表符（空格），\n换行符
 print('hello\tworld')
 print('hello\nworld')
 # 删除字符串前后的空白，带有空格的数据不同
