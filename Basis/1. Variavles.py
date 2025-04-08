@@ -1,3 +1,4 @@
+# variables
 message = 'hello python'
 print(message)
 message = 'nihao'
