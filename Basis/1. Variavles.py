@@ -34,12 +34,6 @@ print(sentence)
 
 
 
-name = 'xiaoming'
-gender = 'female'
-message = f'我的名字是{name},我是一个{gender}孩'
-print(message)
-message = message.upper()
-print(message)
 # 3、整数与小数的运算：整数是int，包括正负，小数是float，即浮点数，也包括正负
 # 计算规则：加减乘除，括号改变优先计算级
 a,b = 3,4  #可以给多个变量赋值
