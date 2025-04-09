@@ -1,4 +1,5 @@
-# 列表：多种数据，例如身高，朋友，各种动物，也可以是空列表，列表用[]圈出，用逗号分隔
+# 1. List
+
 animals = ['cats','dogs','chickens']
 print(animals)
 print(type(animals))
