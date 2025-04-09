@@ -21,14 +21,19 @@ country = 'USA'
 print(f'My name is {name}, I come from {country}.')
 
 
-# 5. 字符串中使用空白符号：\t制表符（空格），\n换行符
+# 5. Tab: \t
+Newline: \n
 print('hello\tworld')
 print('hello\nworld')
-# 删除字符串前后的空白，带有空格的数据不同
+
+
+# 6. Remove the space
 sentence = '   python    '
 sentence = sentence.strip()
-print(sentence) #变量函数一体化，一定要整体使用，可以另行赋值
-# 练习：类的模块的继承与不同模块的传递
+print(sentence)
+
+
+
 name = 'xiaoming'
 gender = 'female'
 message = f'我的名字是{name},我是一个{gender}孩'
