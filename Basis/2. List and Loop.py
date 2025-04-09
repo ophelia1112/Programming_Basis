@@ -1,8 +1,10 @@
 
 # 1. List
-animals = ['cats','dogs','chickens']
+animals = ['cat','dog','chicken']
 print(animals)
 print(type(animals))
+
+# 2. Get elements in list
 # 访问列表的元素：列表数据有前后顺序，按照顺序与下标来进行访问，正数从0开始，用负数数则从右边的-1开始数，例如
 print(animals[0])
 print(animals[-1])  # 下标的框用列表的[]
