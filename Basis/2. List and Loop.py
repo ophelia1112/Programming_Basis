@@ -1,5 +1,5 @@
-# 1. List
 
+# 1. List
 animals = ['cats','dogs','chickens']
 print(animals)
 print(type(animals))
