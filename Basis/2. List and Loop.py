@@ -12,12 +12,23 @@ print(animals[-1])
 
 
 # 3. Add, delete, revise elements in list
-new_list[0] = 'pear'
-print(new_list)
-new_list.append('oranges')
-print(new_list)  #一般是初始化一个空列表，逐步增加数据
-new_list.remove('pear')
-print(new_list)
+# revise
+animals[0] = 'snake'
+print(animals)
+
+# add
+animals.append('whale')
+print(animals) 
+
+# remove
+animals.remove('snake')
+print(animals)
+
+
+
+
+
+
 # 练习：类的模块的继承与不同模块的传递
 guests = ['小张','小王','小李']
 guests.remove('小王')
