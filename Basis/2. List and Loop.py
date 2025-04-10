@@ -25,19 +25,12 @@ animals.remove('snake')
 print(animals)
 
 
-
-
-
-
-# 练习：类的模块的继承与不同模块的传递
-guests = ['小张','小王','小李']
-guests.remove('小王')
-guests.append('小黄')
-print(guests)
-# 列表排序与长度：列表的排序用list.sort()，一般默认升序，加上reverse = Ture，实现倒序，即降序
+# 4. Get the length of list and sort elements in list
 grades = [11,89,45,67,87,34]
 grades.sort()
 print(grades)
+
+# 
 grades.sort(reverse=True)
 print(grades)
 # 上述的方法将原列表改动了，如果不想原列表被改变并且持续输出修改以后列表，用sorted(list)方法，不会修改原来列表，并且返回一个新排序列表
