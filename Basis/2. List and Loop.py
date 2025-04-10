@@ -1,16 +1,16 @@
-
 # 1. List
 animals = ['cat','dog','chicken']
 print(animals)
 print(type(animals))
 
+
 # 2. Get elements in list
-# 访问列表的元素：列表数据有前后顺序，按照顺序与下标来进行访问，正数从0开始，用负数数则从右边的-1开始数，例如
+# Indexing method
 print(animals[0])
-print(animals[-1])  # 下标的框用列表的[]
-new_list = ['apple','banana','grapes']
-message = f'i want to eat {new_list[0]}'
-print(message)
+print(animals[-1])
+
+
+
 # 列表的操作：新增，删除，修改，修改是list[下标] = 新值，新增列表值是通过append()函数，即list.append(元素)，给末尾添加元素，删除元素是通过remove()函数,即list.remove(元素)
 new_list[0] = 'pear'
 print(new_list)
