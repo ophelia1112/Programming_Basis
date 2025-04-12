@@ -30,14 +30,17 @@ grades = [11,89,45,67,87,34]
 grades.sort()
 print(grades)
 
-# 
+
+# 5. Sort elements in list and set reverse direction
 grades.sort(reverse=True)
 print(grades)
-# 上述的方法将原列表改动了，如果不想原列表被改变并且持续输出修改以后列表，用sorted(list)方法，不会修改原来列表，并且返回一个新排序列表
-grades1 = sorted(grades)
-print(grades,grades1)
+
+
+# 6. Use sorted to keep original list unchanged
 grades2 = sorted(grades,reverse=True)
 print(grades,grades2)
+
+
 # 洞察列表长度，用len()函数
 print('成绩的个数为：',len(grades))
 # 列表list和循环loop
