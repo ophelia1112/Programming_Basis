@@ -1,44 +1,43 @@
-# 字典dict：定义，字典是键值对的数据结构，根据键即key，设置与获取对应值value，语法是 dict = {key1:value1,key2:value2}
-# 空字典 data = {}  个人信息字典  user = {'id':12,'name':'kiki','age':18}  创建多人信息 users = {'小明'：'男'，'小红':'女'}
-# 访问字典中的值：通过键访问对应的值，即dict[key]可以获取对应的value，如果key不存在返回none
-user = {'id':123,'name':'小明','age':18}
+# 1. Dict structure
+Dict = {key1 : value1, key2 :v alue2}
+User = {'id':12,'name':'Tom','age':18}
+Users = {'Tom': 'Male', 'Amy': 'Female'}
+
+
+# 2. Get values in dict
+user = {'id':123,'name':'Tom','age':18}
 print(user['id'])
 print(user['name'])
-# 写user[grade]会报错，但是写get不会报错并且可以指定默认值
-print(user.get('grade'))
-print(user.get('grade',90))
-# 字典添加键值对：使用dict[key] = value可以添加键值对，如果键不存在即新增这个值，如果键存在则覆盖值
+# If error with user[''], use get
+print(user.get('name'))
+
+
+
+# 3. Add elements in dict
 user['height'] = 180
-user['family'] = 6
+user['age'] = 19
 print(user)
-# 循环遍历字典数据方法：
-# dict.items()：以列表的形式返回可遍历的（键，值）元组数组，常用于for遍历
-# dict.key()：以列表的形式返回字典所有的键
-# dict.value()：以列表的形式返回字典所有的值
+
+
+
+# 4. Iterate the elements in dict
+# dict.items(): get the key-value pair and return list
+# dict.key(): get all keys and return list
+# dict.value(): get values and return list
 for key,value in user.items():
     print(key,value)
 print(user.items())
 print(list(user.items()))
-for key in user.keys(): #可以换成任何名字
+
+for key in user.keys():
     print(key)
+    
 for value in user.values():
     print(value)
-grades = {'小明':89,'小花':90,'小东':23}
-for name in grades.keys():
-    print(name,grades[name])
-print(grades.keys())
-print(list(grades.keys()))
-for grade in grades.values():
-    print(grade)
-print(grades.values())  #输出对象
-print(list(grades.values()))
-# 练习题
-fruits = {'小明':'apple','小花':'orange','小张':'banana','小白':'pear'}
-for name,fruit in fruits.items():
-    print(f'朋友{name}最喜欢的水果是 {fruit}')
+    
 
-# 字典的嵌套：列表的元素是字典，即数据的嵌套，将字典存储在列表里，或者字典的值即value是列表，或者字典的value值是字典
-# 例子：学生信息字典的列表，列表里面放字典
+
+# 5. Nested dict
 students = [
     {'id':101,'name':'xiaoli','height':190},
     {'id':110,'name':'xiaohua','height':180},
