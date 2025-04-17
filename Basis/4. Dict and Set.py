@@ -37,15 +37,19 @@ for value in user.values():
     
 
 
-# 5. Nested dict
+# 5. Nested dict(dict in list)
 students = [
-    {'id':101,'name':'xiaoli','height':190},
-    {'id':110,'name':'xiaohua','height':180},
-    {'id':112,'name':'xiaoling','height':179},
+    {'id':101,'name':'Tom','height':190},
+    {'id':110,'name':'Amy','height':180},
+    {'id':112,'name':'John','height':179},
 ]
 for student in students:
     id,name,height = student['id'],student['name'],student['height']
-    print(f'学号为{id}的学生叫{name}身高是{height}')
+    print(f 'The student number is {id}, her/his name is {name} and the height is {height}.')
+
+
+
+
 # 字典的value是列表：喜欢的球类，嵌套的结构里面注意字典是冒号连接，并且列表字典之间用逗号，字典里面放列表
 students = {
     'xiaohua' : ['足球','篮球'],
