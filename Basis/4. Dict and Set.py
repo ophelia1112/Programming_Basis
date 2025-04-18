@@ -50,15 +50,18 @@ for student in students:
 
 
 
-# 字典的value是列表：喜欢的球类，嵌套的结构里面注意字典是冒号连接，并且列表字典之间用逗号，字典里面放列表
+# 6. Nested dict(list in dict)
 students = {
-    'xiaohua' : ['足球','篮球'],
-    'xiaoming' : ['羽毛球'],
-    'xiaodong' : ['乒乓球'],
+    'Tom' : ['football','basketball'],
+    'Amy' : ['badminton'],
+    'Alice' : ['pingpong'],
 }
-for student,habby in students.items(): #列表整体循环
-    print(f'学生名字是{name},爱好是{habby}')
-# 字典嵌套中字典的value值是字典，字典里面套字典
+for student,hobby in students.items():
+    print(f'My name is {name}, and my hobby sports are {hobby}')
+
+
+
+# 7. Nested dict(dict in dict)
 students = {
     'xiaohua' : {'id':12,'height':180,'job':'teacher'},  #字典里面套字典名字与字典是分离的，所以名字是一块，字典内容是一块
     'xiaoli' : {'id':13,'height':179,'job':'nurse'},
