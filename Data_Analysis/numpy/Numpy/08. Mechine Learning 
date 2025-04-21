@@ -1,0 +1,261 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "e1eca6b6-312b-4c42-a0fa-8dc138a30e74",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# K折交叉验证数据划分\n",
+    "# 使用Numpy数组切片语法，实现K折交叉验证数据划分\n",
+    "# K折交叉验证数据划分：机器学习中，使用其可以更好评估模型效果，例如样本量不充足，划分了训练集与测试集之后训练的数据更少，而训练集测试集的不同划分也会导致模型的不同性能效果"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "0221aeda-71b1-45d0-bb3a-44dc0d91f45e",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# K折验证（k-fold validtion）：将数据划分为大小相等的K个分区，对每个分区i，在剩余的K-1个分区上训练模型，在分区i上评估模型\n",
+    "# 最终分数（模型的相关系数），为K个分数的平均值，使用平均值消除训练集和测试集的划分影响"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "5965ae6c-1c7f-4bd0-b2c3-b6e948e3cd84",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 具体逻辑即：例如进行5折划分，首先选取第一个片区进行保留，训练剩余四个片区，用模型测试第一份保留片区的数据得出分数，以此类推，保留的数据分别为第二块，第三块等，得出的五次分数进行平均即计算出的分数\n",
+    "# 进行5此训练以求稳定性，相当于样本数量变多"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "6e2fbe98-7bc6-49cc-83e7-a73586378ea1",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 模拟构造样本集合"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "341d6355-ab71-4970-8dd3-5f097cf5b1ae",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import numpy as np"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "ae5a1114-6a75-4ebc-9b87-6515170594ee",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[ 0,  1,  2,  3],\n",
+       "       [ 4,  5,  6,  7],\n",
+       "       [ 8,  9, 10, 11],\n",
+       "       [12, 13, 14, 15],\n",
+       "       [16, 17, 18, 19],\n",
+       "       [20, 21, 22, 23],\n",
+       "       [24, 25, 26, 27],\n",
+       "       [28, 29, 30, 31],\n",
+       "       [32, 33, 34, 35]])"
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "data=np.arange(36).reshape(9,4)\n",
+    "data\n",
+    "# 二维矩阵，行代表每个样本，列代表每个特征，九个样本，四种特征（机器学习模型训练输入标准格式）"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "id": "90c697c2-b4cb-4cad-a1f9-e73e097c2dc4",
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2025-01-27T06:24:20.392654Z",
+     "start_time": "2025-01-27T06:24:20.390378Z"
+    }
+   },
+   "source": [
+    "# 使用Numpy实现数据的K次划分"
+   ],
+   "outputs": [],
+   "execution_count": 2
+  },
+  {
+   "cell_type": "code",
+   "id": "85679228-65cd-4e7e-91de-67c57aa5e389",
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2025-01-27T06:24:33.069921Z",
+     "start_time": "2025-01-27T06:24:33.067543Z"
+    }
+   },
+   "source": [
+    "k=4"
+   ],
+   "outputs": [],
+   "execution_count": 3
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "6d1199fa-49d2-49e8-a7cf-617f7c2ab641",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "2"
+      ]
+     },
+     "execution_count": 10,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# 计算出来每一个fold的样本个数，即每一个片区的数目\n",
+    "k_samples_count=data.shape[0]//k # 行数整除k，九个样本整除4即为2\n",
+    "k_samples_count"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "e17e2e89-5132-4f55-b936-0d2aba733d55",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "第0折\n",
+      "验证集：\n",
+      " [[0 1 2 3]\n",
+      " [4 5 6 7]]\n",
+      "训练集：\n",
+      " [[ 8  9 10 11]\n",
+      " [12 13 14 15]\n",
+      " [16 17 18 19]\n",
+      " [20 21 22 23]\n",
+      " [24 25 26 27]\n",
+      " [28 29 30 31]\n",
+      " [32 33 34 35]]\n",
+      "\n",
+      "第1折\n",
+      "验证集：\n",
+      " [[ 8  9 10 11]\n",
+      " [12 13 14 15]]\n",
+      "训练集：\n",
+      " [[ 0  1  2  3]\n",
+      " [ 4  5  6  7]\n",
+      " [16 17 18 19]\n",
+      " [20 21 22 23]\n",
+      " [24 25 26 27]\n",
+      " [28 29 30 31]\n",
+      " [32 33 34 35]]\n",
+      "\n",
+      "第2折\n",
+      "验证集：\n",
+      " [[16 17 18 19]\n",
+      " [20 21 22 23]]\n",
+      "训练集：\n",
+      " [[ 0  1  2  3]\n",
+      " [ 4  5  6  7]\n",
+      " [ 8  9 10 11]\n",
+      " [12 13 14 15]\n",
+      " [24 25 26 27]\n",
+      " [28 29 30 31]\n",
+      " [32 33 34 35]]\n",
+      "\n",
+      "第3折\n",
+      "验证集：\n",
+      " [[24 25 26 27]\n",
+      " [28 29 30 31]]\n",
+      "训练集：\n",
+      " [[ 0  1  2  3]\n",
+      " [ 4  5  6  7]\n",
+      " [ 8  9 10 11]\n",
+      " [12 13 14 15]\n",
+      " [16 17 18 19]\n",
+      " [20 21 22 23]\n",
+      " [32 33 34 35]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "# 数据划分\n",
+    "# 验证数据的设定与拼接\n",
+    "for fold in range(k): # fold代表第几次划分，第几次划分即第几片，numpy切片语法切出一片作为验证集，剩余几份为训练集\n",
+    "    validation_begin=k_samples_count*fold # 开始的地方是样本的个数*第几份，第几份是遍历的，比如第一份乘以两个样本是开始的地方\n",
+    "    validation_end=k_samples_count*(fold+1) # 则结束的地方是遍历的份数如第一份后面的第二份再乘以样本\n",
+    "    validation_data=data[validation_begin:validation_end] #验证数据集即开始数据（可以取到）到结束数据（不可以取到）\n",
+    "# 训练集数据\n",
+    "# 沿着垂直方向堆叠数组 \n",
+    "    train_data=np.vstack([     \n",
+    "        data[:validation_begin], # 从0到开始数据，即如果验证数据在中间，例如第二块，则从0到开始数据（不包含开始数据），再拼接剩余数据，即从结束数据到结尾，将这两部分数据\n",
+    "                                 # 放在一个数据集里就构成了训练集数据\n",
+    "        data[validation_end:]    # 而每一个[]中都是一个二维数组，将这些数据堆叠起来就构成新的大一点的二维数组\n",
+    "    ]) # 双层嵌套\n",
+    "# 取到了每一个小的二维数据数组，将每一份也即除了一份验证数据之外的剩余几份训练数据堆叠起来，用vstack函数进行拼接\n",
+    "    print()\n",
+    "    print(f'第{fold}折')\n",
+    "    print('验证集：\\n',validation_data)\n",
+    "    print('训练集：\\n',train_data) \n",
+    "    "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "d964899f-c3cf-4d20-81cb-f9d83280a0f1",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 通过scikit-learn有封装好的实现\n",
+    "# from sklearn.model_selection import cross_val_score"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.1"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

@@ -1,0 +1,228 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "8f3f45d1-73ba-4188-b258-6afae8d9093b",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import numpy as np"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "71a82450-c682-4775-8598-aad469a1f9b5",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'1.26.4'"
+      ]
+     },
+     "execution_count": 2,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.__version__ # 两个横线"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "ed435a3b-80e1-4462-8f91-21a64be850e1",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 使用编程\n",
+    "def python_plus(n):\n",
+    "    a=[i**2 for i in range(n)]\n",
+    "    b=[i**3 for i in range(n)]\n",
+    "    c=[]\n",
+    "    for i in range(n):\n",
+    "        c.append(a[i]+b[i])\n",
+    "    return c"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "6a93dee5-c953-4f1e-a6c7-6f0da1c438d9",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[0, 2, 12, 36, 80, 150, 252, 392, 576, 810]"
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "python_plus(10)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "e111a8c2-e075-41b6-9d44-b79fa841ed6d",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 使用numpy"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "40a2a119-939f-4862-8fb3-e7b6a6d04808",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def numpy_sum(n):\n",
+    "    a=np.arange(n)**2\n",
+    "    b=np.arange(n)**3\n",
+    "    return a+b"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "bc1421be-cf52-4f5f-ab29-97d164a0883a",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([  0,   2,  12,  36,  80, 150, 252, 392, 576, 810])"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "numpy_sum(10)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "26172ac7-e6e5-40f7-94c5-ae4d3c21bf7a",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 性能测试"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "f330eed2-be6c-42db-949f-f524784ce412",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "36.7 µs ± 2.01 µs per loop (mean ± std. dev. of 7 runs, 10,000 loops each)\n"
+     ]
+    }
+   ],
+   "source": [
+    "%timeit python_plus(100)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "98d63681-1b75-4dc9-9b65-c7900a340cc3",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "7.73 µs ± 238 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)\n"
+     ]
+    }
+   ],
+   "source": [
+    "%timeit numpy_sum(100)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "199e507a-38b9-4b41-b672-c3fc49c966cf",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "42.1 ms ± 4.09 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)\n"
+     ]
+    }
+   ],
+   "source": [
+    "%timeit python_plus(10*10000)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "id": "95056f52-a0c3-4d1e-bca6-7883e59b2394",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "468 µs ± 32.6 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)\n"
+     ]
+    }
+   ],
+   "source": [
+    "%timeit numpy_sum(10*10000)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "f03e465b-bb34-4c83-a1a3-4562351a458d",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.1"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

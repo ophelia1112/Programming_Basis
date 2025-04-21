@@ -1,0 +1,1260 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "e87362ba-ec07-4950-a17e-7b36186beb30",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# numpy对数组按照索引查询\n",
+    "# 三种索引方法：基础索引，神奇索引，布尔索引"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "6d121039-a3b1-414f-990e-9f1dcc2fd4fd",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import numpy as np"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "24adc72d-4131-4cd0-a1cb-cab33d3ee548",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# 一维向量\n",
+    "x=np.arange(10)\n",
+    "x"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "f46ae11b-4b9c-4dd2-a6ca-82ecae4ba28c",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[ 0,  1,  2,  3,  4],\n",
+       "       [ 5,  6,  7,  8,  9],\n",
+       "       [10, 11, 12, 13, 14],\n",
+       "       [15, 16, 17, 18, 19]])"
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# 二维向量，二维向量一般为大写字母\n",
+    "X=np.arange(20).reshape(4,5)\n",
+    "X"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "d7c9108d-3daf-4f9a-b068-74848c5ac7ae",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 基础索引\n",
+    "# 一维数组与python列表一样,用切片"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "5849bf98-a9bc-47bb-bf0e-b2f3890b46f8",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "247fee9a-9228-470c-aa10-c30f5f50acbd",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "2 5 9\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(x[2],x[5],x[-1])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "b95fd8ce-9eab-409b-91bd-d234d385c868",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([2, 3])"
+      ]
+     },
+     "execution_count": 10,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x[2:4] # 只含头不含尾"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "8a4297a9-1704-4f24-9d6c-70b489c059b8",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([2, 3, 4, 5, 6, 7, 8])"
+      ]
+     },
+     "execution_count": 11,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x[2:-1]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "d1d208e5-a96a-4ab9-8ff1-8683529ea086",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([7, 8, 9])"
+      ]
+     },
+     "execution_count": 12,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x[-3:] # 除非尾为空，为空则全取"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "02850f29-9ed6-4a68-b89b-e1eac8b05eae",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([0, 1, 2, 3, 4, 5, 6])"
+      ]
+     },
+     "execution_count": 13,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x[:-3]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "694fb79f-77e0-4166-b755-5464e20bf3cb",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 二维数组"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "9b34b0e4-2aa9-4e82-b2df-b920a76fc3d8",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[ 0,  1,  2,  3,  4],\n",
+       "       [ 5,  6,  7,  8,  9],\n",
+       "       [10, 11, 12, 13, 14],\n",
+       "       [15, 16, 17, 18, 19]])"
+      ]
+     },
+     "execution_count": 15,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "X"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "2984b5ae-7bab-4bcf-8187-6497d89f009e",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0"
+      ]
+     },
+     "execution_count": 17,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# 二维数组用行坐标列坐标进行筛选，这也就形成了一个坐标\n",
+    "X[0,0]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "aa7a899f-491b-49bd-a7c5-a2705ad1b4fc",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "17"
+      ]
+     },
+     "execution_count": 18,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "X[-1,2] # -1行第二个元素"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "id": "1b023fa2-215a-4998-bcec-91dfc5e2e127",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "8"
+      ]
+     },
+     "execution_count": 19,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "X[1,3]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "id": "e32aa3bb-84ed-467e-9701-a53533ca5a7c",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "3"
+      ]
+     },
+     "execution_count": 20,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "X[0,3]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "id": "4e6a28ce-aa98-422c-907e-f805495e3137",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([10, 11, 12, 13, 14])"
+      ]
+     },
+     "execution_count": 21,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# 如果省略后面的参数，则返回低一维度的数组，即并非返回一个具体的数值，而是一行数\n",
+    "X[2]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "id": "867e91a6-fe0e-4943-a449-4b4b13633974",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([15, 16, 17, 18, 19])"
+      ]
+     },
+     "execution_count": 22,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "X[-1]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "id": "f8bb5fde-deeb-4d41-a87f-64a7c694e8cf",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[ 0,  1,  2,  3,  4],\n",
+       "       [ 5,  6,  7,  8,  9],\n",
+       "       [10, 11, 12, 13, 14]])"
+      ]
+     },
+     "execution_count": 23,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "X[:-1] # 筛选多行"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "id": "3339d4f2-291a-4bac-9d35-4ca3527a0f25",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[ 5,  6,  7,  8,  9],\n",
+       "       [10, 11, 12, 13, 14],\n",
+       "       [15, 16, 17, 18, 19]])"
+      ]
+     },
+     "execution_count": 24,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "X[1:]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "id": "a62ffea3-06ef-4658-8bc3-5ec5043632f1",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[2, 3],\n",
+       "       [7, 8]])"
+      ]
+     },
+     "execution_count": 25,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# 筛选多行，然后筛选多列\n",
+    "X[:2,2:4]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "id": "b6343319-80a7-4cf7-90a2-b88a3b158455",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[ 1,  2,  3],\n",
+       "       [ 6,  7,  8],\n",
+       "       [11, 12, 13],\n",
+       "       [16, 17, 18]])"
+      ]
+     },
+     "execution_count": 26,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# 筛选所有行，筛选多列\n",
+    "X[:,1:4]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "id": "af13e54a-ab35-4c93-ae98-3e3a8a2b2452",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[ 0,  1,  2,  3,  4],\n",
+       "       [ 5,  6,  7,  8,  9],\n",
+       "       [10, 11, 12, 13, 14],\n",
+       "       [15, 16, 17, 18, 19]])"
+      ]
+     },
+     "execution_count": 27,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# 筛选所有行，列\n",
+    "X[:,:]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "id": "57396106-ba6d-418b-98e5-a637944f9f27",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 切片修改会修改原来的数组，处理大数据是避免重复"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "id": "9ee1b910-f5fb-4171-a77e-208b9c88f8c3",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])"
+      ]
+     },
+     "execution_count": 29,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "id": "1a928d60-9933-4620-b05d-57588140b9c3",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([  0,   1, 666, 666,   4,   5,   6,   7,   8,   9])"
+      ]
+     },
+     "execution_count": 30,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x[2:4]=666\n",
+    "x"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "id": "73112206-78b6-4afd-8027-dc623ea81ca0",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[666, 666,   2,   3,   4],\n",
+       "       [  5,   6,   7,   8,   9],\n",
+       "       [ 10,  11,  12,  13,  14],\n",
+       "       [ 15,  16,  17,  18,  19]])"
+      ]
+     },
+     "execution_count": 31,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "X[:1,:2]=666\n",
+    "X"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "id": "d0c8c6fe-eac7-403e-98ae-0c3cfc19d76c",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 我们对选取数据的修改会影响原来的数组"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "f7896df7-69d0-486e-ac5c-f69612810ed8",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "id": "81b29cc1-bd2b-45da-99af-e876bc5884ba",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 神奇索引，即用整数数组进行索引"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "id": "e5be0fb1-fcc0-4c06-8c44-e1917e019aee",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 一维数组"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 40,
+   "id": "570f7b1b-d7b3-4ce9-ba83-06c3a9f1e775",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([ 6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,\n",
+       "       23, 24, 25, 26, 27, 28])"
+      ]
+     },
+     "execution_count": 40,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x=np.arange(6,29)\n",
+    "x"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 41,
+   "id": "9c525059-3e5c-4fab-b3c7-a7ecf94290b6",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([ 9, 10, 13])"
+      ]
+     },
+     "execution_count": 41,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x[[3,4,7]]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 43,
+   "id": "67e6885c-1d2a-4b4a-ada1-599a6522c262",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[6, 8],\n",
+       "       [7, 9]])"
+      ]
+     },
+     "execution_count": 43,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "indexs=np.array([[0,2],[1,3]])\n",
+    "x[indexs] # 传出的特定位置的数组"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 44,
+   "id": "3fc8523e-3d7d-4805-b62e-ae8339c67662",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 获取数组中最大的前N个数字"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 54,
+   "id": "95df5688-6709-42b3-8a22-1403d03ffd83",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([68, 88, 52, 56, 87, 17, 58, 38, 41, 53])"
+      ]
+     },
+     "execution_count": 54,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# 随机生成1-100之间的10个数字\n",
+    "arr=np.random.randint(1,100,10)\n",
+    "arr"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 55,
+   "id": "f53c33dc-6e13-4be7-9024-ee7adbdac327",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([5, 7, 8, 2, 9, 3, 6, 0, 4, 1], dtype=int64)"
+      ]
+     },
+     "execution_count": 55,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# arr.arasort()返回排序后的索引index，排序后的是下标\n",
+    "# 获取最大值对应的三个下标\n",
+    "arr.argsort()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 56,
+   "id": "1b925ba4-d191-4e6b-bac1-0f2c6c309762",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([0, 4, 1], dtype=int64)"
+      ]
+     },
+     "execution_count": 56,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "arr.argsort()[-3:] # 获取的也是排序之后的最大的三个数的下标"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 58,
+   "id": "c36ee06a-7656-46e1-936c-90da374f6797",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([68, 87, 88])"
+      ]
+     },
+     "execution_count": 58,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "arr[arr.argsort()[-3:]] # 通过这种方式导出的是最大的三个数下标对应的数值，通过此方式传位置，通过位置定位，数据传给数组进行筛选"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 59,
+   "id": "5937f1f8-e15d-459b-bab0-c1b53952107a",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 二维数组"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 60,
+   "id": "d473d5cb-1d4e-43d1-a3f8-802e4b1661de",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[ 0,  1,  2,  3,  4],\n",
+       "       [ 5,  6,  7,  8,  9],\n",
+       "       [10, 11, 12, 13, 14],\n",
+       "       [15, 16, 17, 18, 19]])"
+      ]
+     },
+     "execution_count": 60,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "X=np.arange(20).reshape(4,5)\n",
+    "X"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 61,
+   "id": "67580c7b-50ad-4482-beec-e04dbc219b10",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[ 0,  1,  2,  3,  4],\n",
+       "       [10, 11, 12, 13, 14]])"
+      ]
+     },
+     "execution_count": 61,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# 筛选多行，列可以省略\n",
+    "X[[0,2]]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 62,
+   "id": "eb6770e3-3139-441d-8890-2041b2595413",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[ 0,  1,  2,  3,  4],\n",
+       "       [10, 11, 12, 13, 14]])"
+      ]
+     },
+     "execution_count": 62,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "X[[0,2],:]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 63,
+   "id": "e88bd3c0-6741-4ff4-9fef-4a8e17825461",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[ 0,  2,  3],\n",
+       "       [ 5,  7,  8],\n",
+       "       [10, 12, 13],\n",
+       "       [15, 17, 18]])"
+      ]
+     },
+     "execution_count": 63,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# 筛选多列，行不能省略\n",
+    "X[:,[0,2,3]]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 64,
+   "id": "f5b6d119-f6e1-4e22-a8ea-b1afd621b736",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([ 1, 13, 19])"
+      ]
+     },
+     "execution_count": 64,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# 同时指定行列-列表\n",
+    "# 返回的是[(0,1),(2,3),(3,4)]位置的数字\n",
+    "X[[0,2,3],[1,3,4]]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "bedc3bba-9fca-4068-a8f7-70cb7107d023",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 65,
+   "id": "68807f23-9a8d-49d9-82c7-da59cd5fe516",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 布尔索引，常用"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 66,
+   "id": "8c4560f9-4e97-4590-a8a2-c4f0d423f13b",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 一维数组"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 74,
+   "id": "7fb98784-e95b-42e2-ad61-e3789e3c9f60",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])"
+      ]
+     },
+     "execution_count": 74,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x=np.arange(10)\n",
+    "x"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 75,
+   "id": "2f5ffc6c-d2a6-42b8-b429-ad73c7a0227d",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([False, False, False, False, False, False,  True,  True,  True,\n",
+       "        True])"
+      ]
+     },
+     "execution_count": 75,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x>5 #布尔判断"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 76,
+   "id": "1cff4901-e0b7-41a3-9437-0768819685da",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([6, 7, 8, 9])"
+      ]
+     },
+     "execution_count": 76,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x[x>5] # 返回大于5的数组"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 77,
+   "id": "e35b4a3e-2619-462c-8ec8-a35cf90237b2",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([0, 0, 0, 0, 0, 0, 1, 1, 1, 1])"
+      ]
+     },
+     "execution_count": 77,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# 实例：将一堆数组进行01化处理，例如高价房为1，低价房为0，同理在社会科学中处理虚拟变量将一堆虚拟变量的取值01处理，或者对变量取值进行分组，以某数字为界限，进行分组01处理\n",
+    "x[x<=5]=0\n",
+    "x[x>5]=1\n",
+    "x"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 78,
+   "id": "cc3bfd6b-cbf8-43fc-9a14-a5d8c15bb609",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([20, 21, 22, 23, 24, 25,  6,  7,  8,  9])"
+      ]
+     },
+     "execution_count": 78,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x=np.arange(10) # 增量操作\n",
+    "x[x<=5]+=20\n",
+    "x"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 79,
+   "id": "f6e6661a-449a-43c9-a469-ca8c488063d3",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 二维数组"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 85,
+   "id": "95fcd971-e374-42d8-a806-8516c9ab8968",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[ 0,  1,  2,  3,  4],\n",
+       "       [ 5,  6,  7,  8,  9],\n",
+       "       [10, 11, 12, 13, 14],\n",
+       "       [15, 16, 17, 18, 19]])"
+      ]
+     },
+     "execution_count": 85,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "X=np.arange(20).reshape(4,5)\n",
+    "X"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 86,
+   "id": "e2129438-fbc8-444d-839f-91c725e15a2c",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[False, False, False, False, False],\n",
+       "       [False,  True,  True,  True,  True],\n",
+       "       [ True,  True,  True,  True,  True],\n",
+       "       [ True,  True,  True,  True,  True]])"
+      ]
+     },
+     "execution_count": 86,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "X>5 # 判断的是行列两者的情况"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 87,
+   "id": "f563ae13-7bf7-4554-9a65-843e87b88576",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([ 6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19])"
+      ]
+     },
+     "execution_count": 87,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "X[X>5]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 91,
+   "id": "525f46ac-a6b8-4239-91db-e5fedff944be",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([False,  True,  True,  True])"
+      ]
+     },
+     "execution_count": 91,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# 第三列大于5的有哪些,所有行的第三列大于5的\n",
+    "X[:,3]>5"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 92,
+   "id": "1ebb0cf8-8774-4245-8f23-72f8988263fe",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[ 5,  6,  7,  8,  9],\n",
+       "       [10, 11, 12, 13, 14],\n",
+       "       [15, 16, 17, 18, 19]])"
+      ]
+     },
+     "execution_count": 92,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "X[X[:,3]>5] # 把所有行的第三列这个条件传给大数组，筛选出三行"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 93,
+   "id": "6ed5a658-4d56-48a0-b5f4-79a6e1881325",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 布尔索引是组合查询，条件的组合"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 94,
+   "id": "7d2f8d1b-a817-46b4-9954-937dd083274e",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])"
+      ]
+     },
+     "execution_count": 94,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x=np.arange(10)\n",
+    "x"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 97,
+   "id": "b6755080-bd83-4cb6-b7e0-7682959cfd4c",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([ True, False,  True, False,  True, False,  True, False,  True,\n",
+       "        True])"
+      ]
+     },
+     "execution_count": 97,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "condition=(x%2==0)|(x>7) # 或者\n",
+    "condition"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 98,
+   "id": "0a813db1-3bee-426d-8320-9afaa11ba54d",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([0, 2, 4, 6, 8, 9])"
+      ]
+     },
+     "execution_count": 98,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x[condition]"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.1"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

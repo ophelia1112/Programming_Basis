@@ -1,0 +1,1130 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "1288c4bc-9961-4605-973a-99c05e34aac1",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 使用python列表和列表嵌套创建一维与二维array"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "dcfb206c-ebd6-415d-be5a-e8aaf593bdc0",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 一维数组，单元素list\n",
+    "import numpy as np\n",
+    "x=np.array([1,2,3,4,5,6,7,8])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "4f91fa64-0708-4995-ba02-ade740e1b7c5",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([1, 2, 3, 4, 5, 6, 7, 8])"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "7909e885-8547-4048-9cd4-70b760ddc436",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 创建二维数组，即python的嵌套列表\n",
+    "X=np.array(\n",
+    "  [\n",
+    "    [1,2,3,4],\n",
+    "    [5,6,7,8]\n",
+    "  ]\n",
+    ")\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "64283c27-a66b-43d0-815b-4f05b4f96c49",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[1, 2, 3, 4],\n",
+       "       [5, 6, 7, 8]])"
+      ]
+     },
+     "execution_count": 8,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "X"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "3d4006b3-0292-48d4-b2fb-e5e9540235c3",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 数组array的属性"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "0ef95296-ab23-4c4c-8216-0276ef14edac",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(8,)"
+      ]
+     },
+     "execution_count": 10,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x.shape"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "609aff73-3fe9-4998-b944-07d2d27801cc",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(2, 4)"
+      ]
+     },
+     "execution_count": 11,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "X.shape"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "3c22ee96-0781-4ddf-982c-c020d837ef46",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "1"
+      ]
+     },
+     "execution_count": 12,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x.ndim"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "9caaceba-decc-4c58-beae-6a1e9c7d2c06",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "2"
+      ]
+     },
+     "execution_count": 13,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "X.ndim"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "47047387-36e0-4eee-a337-02f03016c90c",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "8"
+      ]
+     },
+     "execution_count": 14,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x.size"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "2b1ad183-fd17-407c-a058-94ced7c2c366",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "8"
+      ]
+     },
+     "execution_count": 15,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "X.size"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "id": "2226c5aa-4373-4ad4-b70b-cce5f561ff12",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "dtype('int32')"
+      ]
+     },
+     "execution_count": 16,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x.dtype"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "d02044bf-865c-4d68-a865-4b089c379e70",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "dtype('int32')"
+      ]
+     },
+     "execution_count": 17,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x.dtype"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "fa08c658-0c56-4cc8-bee0-ccba6815d222",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 创建array的便捷函数"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "id": "8e9d8811-8baa-4e49-99f2-01848bb4922d",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# arange创建数字序列\n",
+    "# arange([start,]stop[,step,],dtype=None)\n",
+    "# 开始数字start，结束数字stop，步长step\n",
+    "# 创建一维向量"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "id": "79c58698-d95d-42ad-bc7f-1d721cd24054",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])"
+      ]
+     },
+     "execution_count": 26,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.arange(10) # 数字1-9即1-n-1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "id": "8bf9465c-1d69-448e-8e24-b5bce0899b9a",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([2, 4, 6, 8])"
+      ]
+     },
+     "execution_count": 27,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.arange(2,10,2) # 从2开始到10结束，步长为2"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "id": "7ae96294-d94a-4857-84f2-e189e8710416",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 使用ones创建全是1的数组\n",
+    "# np.ones(shape,dtype=None,order='C')\n",
+    "# 形状可以是整数，元组，如果是一个数字，即为一维向量，里面有传入数字的元素，若位元组（x,y）返回的是x行y列矩阵\n",
+    "# shape:int or tuple of ints Shape of the new array,e.g.,(2,3) or 2"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "id": "a0378979-1989-48e2-ab36-b37e4672790a",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])"
+      ]
+     },
+     "execution_count": 29,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.ones(10)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "id": "fe0735d5-b831-4c26-8f3c-a438cbc8e623",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[1., 1., 1.],\n",
+       "       [1., 1., 1.]])"
+      ]
+     },
+     "execution_count": 30,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.ones((2,3))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "3b199c58-d552-4195-be00-cab549df3b82",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 使用ones_like创建形状相同的数组\n",
+    "# ones_like(a,dtype=float,order='C')\n",
+    "# 参数传一个其他的array，按照array创建形状一样的数组"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "id": "1a27a7d3-4b62-4e56-a491-ec48967a07f4",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([1, 1, 1, 1, 1, 1, 1, 1])"
+      ]
+     },
+     "execution_count": 31,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.ones_like(x)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "id": "9b403a1b-6d57-4dbf-9018-e3366a681033",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[1, 1, 1, 1],\n",
+       "       [1, 1, 1, 1]])"
+      ]
+     },
+     "execution_count": 32,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.ones_like(X)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "id": "53c454ef-02bc-4a7d-9c26-c7eae7ec333a",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 使用zeros创建全是零的数组\n",
+    "# np.zeros(shape,dtype=None,order='C')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "id": "a9b85d85-f3a8-47f8-a766-09817d349295",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])"
+      ]
+     },
+     "execution_count": 34,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.zeros(10)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 36,
+   "id": "dad65b5f-3aef-410a-8ea8-0908285b4fbb",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[0., 0., 0., 0.],\n",
+       "       [0., 0., 0., 0.]])"
+      ]
+     },
+     "execution_count": 36,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.zeros((2,4)) #2行4列"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 40,
+   "id": "ebaba486-9929-470e-abfb-6b74bb6d0e86",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 使用zeros_like创建形状相同的数组\n",
+    "# np.zeros_like(a,dtype=None)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 41,
+   "id": "2573d6a6-294b-4a6a-af54-677e09b51242",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([0, 0, 0, 0, 0, 0, 0, 0])"
+      ]
+     },
+     "execution_count": 41,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.zeros_like(x)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 42,
+   "id": "bfe3e570-93de-4d67-acf6-01138c81d47f",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[0, 0, 0, 0],\n",
+       "       [0, 0, 0, 0]])"
+      ]
+     },
+     "execution_count": 42,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.zeros_like(X)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 43,
+   "id": "0b3f3e3f-15fe-4623-b988-9633ffa13c1c",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 使用empty创建全是零的数组\n",
+    "# empty(shape,dtype=float,order='C')\n",
+    "# 数据未初始化，里面的数据为随机值不可用"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 53,
+   "id": "586c741d-474f-4fc5-ac45-9274ef4cc53f",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])"
+      ]
+     },
+     "execution_count": 53,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.empty(10)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 54,
+   "id": "7af762dd-0c2e-400a-b365-953a75a0dfcf",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[0., 0., 0., 0.],\n",
+       "       [0., 0., 0., 0.]])"
+      ]
+     },
+     "execution_count": 54,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.empty((2,4))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 55,
+   "id": "292a1af1-17d8-42f5-aea1-ddc0c457c58d",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 使用empty_like创建形状相同的数组\n",
+    "# empty_like(prototype,dtype=None)\n",
+    "# 未初始化出现随机数"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 56,
+   "id": "9628de2e-f640-4b43-9c3e-8db543f14f8f",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([4128860, 6029375, 3801155, 5570652, 6619251, 7536754, 7798876,\n",
+       "       7209061])"
+      ]
+     },
+     "execution_count": 56,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.empty_like(x)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 57,
+   "id": "96f2b9ba-4bb7-4da7-bce5-2469c829e2b6",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[  0,   1,   0, 395],\n",
+       "       [916,   0, 768,   0]])"
+      ]
+     },
+     "execution_count": 57,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.empty_like(X)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 58,
+   "id": "856e9461-bf9d-4616-a1f1-53bcfdb27a16",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 使用full创建指定值的数组\n",
+    "# np.full(shape,fill_value,dtype=None,order='C')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 60,
+   "id": "c7a8dcf4-7a23-48c0-bcf4-b7e8c260b406",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([666, 666, 666, 666, 666, 666, 666, 666, 666, 666])"
+      ]
+     },
+     "execution_count": 60,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.full(10,666) #矩阵里面全是这个数字"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 64,
+   "id": "5cc18965-cf05-48cc-83f6-277e5bf0abbd",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[333, 333, 333, 333],\n",
+       "       [333, 333, 333, 333]])"
+      ]
+     },
+     "execution_count": 64,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.full((2,4),333)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 65,
+   "id": "ec5262df-5ed6-4e49-9499-909cd3de2e34",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 使用full_like创建一样的数组\n",
+    "# np.full_like(a,fill_value,dtype=None)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 66,
+   "id": "6083e1b0-c935-47ab-ad25-595f97fe9773",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([666, 666, 666, 666, 666, 666, 666, 666])"
+      ]
+     },
+     "execution_count": 66,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.full_like(x,666)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 67,
+   "id": "c6d04851-54d3-4faf-9c64-8946f8ef67ac",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[666, 666, 666, 666],\n",
+       "       [666, 666, 666, 666]])"
+      ]
+     },
+     "execution_count": 67,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.full_like(X,666)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 68,
+   "id": "e0045c48-9629-4cb4-8b7e-d2d4a0abcdbf",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 使用random模块生成随机数的数组\n",
+    "# random(d0,d1,....,dn)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 69,
+   "id": "bad5ad1e-1560-4524-941a-7915f12be04b",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.004338205544324176"
+      ]
+     },
+     "execution_count": 69,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.random.randn()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 70,
+   "id": "11b79bf7-8162-4f7b-92ba-ca0b630cbb0c",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([ 0.45590646,  1.04294914, -0.14220208])"
+      ]
+     },
+     "execution_count": 70,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.random.randn(3)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 71,
+   "id": "8504db0d-f128-4d4f-a4c2-39cea4c1511b",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[ 0.09958669, -1.11808005],\n",
+       "       [ 0.82193374, -0.03247256],\n",
+       "       [-0.85103584, -0.25199162]])"
+      ]
+     },
+     "execution_count": 71,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.random.randn(3,2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 72,
+   "id": "7febbbf7-12ae-462f-9740-378bafa13d7c",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[[-0.00830703, -1.76426623,  1.29212787, -0.82751132],\n",
+       "        [ 0.11847665, -0.22783108,  0.79500048, -1.02818865]],\n",
+       "\n",
+       "       [[-1.33524394, -0.96811603, -2.31057325,  1.94282093],\n",
+       "        [ 0.22064755, -1.23190123, -0.00512712, -1.6883267 ]],\n",
+       "\n",
+       "       [[ 0.22763278, -0.66201638, -0.16002948, -0.89419802],\n",
+       "        [-1.35003929, -1.18882722, -1.94900722, -0.05987915]]])"
+      ]
+     },
+     "execution_count": 72,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.random.randn(3,2,4)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "b3825a82-7265-4439-a1e8-d90a74c2abfb",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# array本身支持的大量操作与函数"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "9fb50419-f5b5-4bb7-a985-c3590db24912",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[0, 1, 2, 3, 4],\n",
+       "       [5, 6, 7, 8, 9]])"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import numpy as np\n",
+    "A=np.arange(10).reshape(2,5)\n",
+    "A"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "df688a75-848c-45a3-a0cf-5b4a29294753",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(2, 5)"
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "A.shape"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "735c6cbe-97fa-4653-b5be-c336d3b547e9",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[ 1,  2,  3,  4,  5],\n",
+       "       [ 6,  7,  8,  9, 10]])"
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "A+1 # 对每个数字操作"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "6594288a-1084-4130-b31d-2b042359b86f",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[ 0,  3,  6,  9, 12],\n",
+       "       [15, 18, 21, 24, 27]])"
+      ]
+     },
+     "execution_count": 8,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "A*3"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "f141218c-180a-4c9f-ab34-2a2c15e13950",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[ 0.        ,  0.84147098,  0.90929743,  0.14112001, -0.7568025 ],\n",
+       "       [-0.95892427, -0.2794155 ,  0.6569866 ,  0.98935825,  0.41211849]])"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.sin(A)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "ba03f6fb-2374-4fd3-8205-1b7716009388",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[1.00000000e+00, 2.71828183e+00, 7.38905610e+00, 2.00855369e+01,\n",
+       "        5.45981500e+01],\n",
+       "       [1.48413159e+02, 4.03428793e+02, 1.09663316e+03, 2.98095799e+03,\n",
+       "        8.10308393e+03]])"
+      ]
+     },
+     "execution_count": 10,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.exp(A)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "bf5344c2-1e47-48cf-8d85-58f76c8d650c",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[-1.34539625e+00, -3.00523441e-01, -1.17807400e+00,\n",
+       "        -6.78690712e-01,  1.42946909e-01],\n",
+       "       [ 8.00972895e-01, -9.56740775e-01, -1.45966799e+00,\n",
+       "        -1.14113335e-03, -3.81231790e-01]])"
+      ]
+     },
+     "execution_count": 12,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "B=np.random.randn(2,5)\n",
+    "B"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "c8f950ad-6923-4801-8d72-a9d916c26304",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[-1.34539625,  0.69947656,  0.821926  ,  2.32130929,  4.14294691],\n",
+       "       [ 5.80097289,  5.04325922,  5.54033201,  7.99885887,  8.61876821]])"
+      ]
+     },
+     "execution_count": 13,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# 形状一样可以加减\n",
+    "A+B"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "3097006c-6211-476f-be79-86bb50fe6b48",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[1.34539625, 1.30052344, 3.178074  , 3.67869071, 3.85705309],\n",
+       "       [4.19902711, 6.95674078, 8.45966799, 8.00114113, 9.38123179]])"
+      ]
+     },
+     "execution_count": 14,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "A-B"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "db0b5152-999e-47f6-a096-351c0d92cb7b",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "bf21c48c-a863-4073-bade-cfccc72fbe52",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "7bb5e75f-ba10-43ca-aec9-46b337872ea6",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.1"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
