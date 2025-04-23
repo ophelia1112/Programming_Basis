@@ -63,61 +63,25 @@ for student,hobby in students.items():
 
 # 7. Nested dict(dict in dict)
 students = {
-    'xiaohua' : {'id':12,'height':180,'job':'teacher'},  #字典里面套字典名字与字典是分离的，所以名字是一块，字典内容是一块
-    'xiaoli' : {'id':13,'height':179,'job':'nurse'},
-    'xiaozhang' : {'id':14,'height':168,'job':'writer'},
+    'Tom' : {'id':12,'height':180,'job':'teacher'}, 
+    'Amy' : {'id':13,'height':179,'job':'nurse'},
+    'Alice' : {'id':14,'height':168,'job':'writer'},
 }
-for name,stock in students.items(): #合包
-    id,height,job = stock['id'],stock['height'],stock['job'] #拆包
-    print(f'学生的名字是{name}学号是{id}身高是{height}工作是{job}')
-# 练习：类的模块的继承与不同模块的传递
-students = {
-    'xiaozhang' : {'id':101,'grade':88},
-    'xiaowang' : {'id':102,'grade':99},
-    'xiaoli' : {'id':103,'grade':77},
-    'xiaozhao' : {'id':104,'grade':85},  #字典里面套字典如何更改信息，也就是覆盖信息
-}
-students['xiaoli']['grade'] = 87 #字典里面套字典先调取外层字典，再调取内部字典，最后赋值，两次调取都是并列行事
-print(students)
-grades = []
-for name,stock in students.items():
-    id,grade = stock['id'],stock['grade']
-    grades.append(grade)
-grades.sort(reverse = True)
-print(grades)
-# 集合set：集合是一组无序并且没有重复元素的键集合，即key的集合，键没有前后顺序，所以集合不支持数字索引与切片，具体使用在于判断某个元素是否在集合中，消除输入数据的重复元素
-# s = set() #空集合
-# s = set(1,2,33,33,4)  #遍历实现数据的去重
-# s = set([1,2,33,33,4])
-# 集合支持的方法：
-# len(set) 集合的元素个数
-# for i in set 集合的遍历
-# set.add(key) 新增一个key，重复的话自动去重
-# set.remove(key) 删除一个key
-# set.clear() 清空set
-# i in set 判断元素是否在set集合中，同理 i not in set
+for name,stock in students.items(): # pack
+    id,height,job = stock['id'],stock['height'],stock['job'] # unpack
+    print(f'Student's name is {name}, and student number is {id}, height is {height}, job is {job}')
 
-# 练习题：比较难
-students = {
-    'xiaozhang' : ['足球','篮球'],
-    'xiaowang' : ['篮球','乒乓球'],
-    'xiaoli' : ['篮球','棒球','台球'],
-    'xiaozhao' : ['乒乓球','羽毛球'],
-}
-likes = set()
-for habbies in students.values():
-    for habby in habbies:
-        likes.add(habby)
-print(likes)
 
-# 列表和字典和集合的推导式：列表字典集合都有推导式
-numbers = range(56)
-# 一个列表，里面每个偶数数字的平房
-data_list = [i * i for i in numbers if i % 2 == 0]
-print('data_list', data_list)
-# 一个字典，里面的key是偶数，value是他的平方，字典key是无序的
-data_dict = { i : i * i for i in numbers if i % 2 == 0}
-print('data_dict',data_dict)
-# 一个集合，每个元素是偶数的平方，集合无序
-data_set = {i * i for i in numbers if i % 2 == 0} #都是大括号，只不过只有键
-print('data_set',data_set)
+
+# 8. set()
+s = set() # Empty set
+s = set(1,2,33,33,4)  # Data Dedpulication
+s = set([1,2,33,33,4])
+Set methods:
+len(set) # number of set elements
+for i in set # elements iteration
+set.add(key) # add new key
+set.remove(key) # drop one key
+set.clear() # clean the whole set
+i in set # check if one element in set, same as i not in set
+
