@@ -1,15 +1,10 @@
-# input函数可以实现用户输入，input(message)函数可以给用户提示信息，等待用户输入，进行处理
-# 注意的点就是，input(message)函数有只返回字符串，要进行数值计算就要转换int类型
-number = input('输入一个数字，就要给你计算他的平方：')
-number = int(number)  #转换数据类型
-print(f'您输入的数字为{number},他的平方是{number * number}')
-# 练习题
-number = input('请输入一个数字：')
-number = int(number)
-if number % 2 == 0:
-    print(f'您输入的数字是{number},是一个偶数')
-else:
-    print(f'您输入的数字为{number},是一个奇数')
+
+# 1. input()
+number = input('please input one number:')
+number = int(number)  # input function just see content as str so need to do data transformation
+print(f'The number you have input is {number},its square is {number * number}')
+
+
 # while循环与input的配合使用：while和for一样都是循环控制语法，for ... in ...的语法结构，方便针对集合中的元素进行遍历处理，而while则会指定一个条件，不满足就退出循环
 # 练习：类的模块的继承与不同模块的传递：计算1-100数字和，语法
 number,sum_value = 1,0  #多个变量的呃巧利用
