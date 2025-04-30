@@ -1,76 +1,33 @@
-
+# 1. simple function
 def print_hello():
-    print('hello world')  #函数就是定义一个模块，模块下方有多个代码，调用函数可以直接运行多行代码
+    print('hello world') 
     print('hello')
 print_hello()
-def print_lloo():
-    print('nihao')
-print_lloo()
 
-# 函数接收参数:给函数提供参数,做出不同反应,函数中的函数参数叫做形参,在函数里面可以使用,而且这个参数只能在函数里面使用,如下是例子
-def introduce(name): #这里面的参数是函数参数,是形参,在函数里面使用,并且只能在函数里面使用
-# 幼儿园的自我介绍
-    print(f'大家好,我的名字是{name},我是一名幼稚园小同学')
-# 调用函数,可以传递不同参数,多次调用
-introduce('小明')  #参数赋值,调用函数传递真实数据参数,叫做实参
-introduce('小红')  #提供参数实现不同控制
-# 练习：类的模块的继承与不同模块的传递
-def sum_numbers(number):  #定义函数
-    # 计算1-number之间的和
-    # :param number:数字
-    # return:加和结果
-    sum_value = 0  #初始的未加总的值
-    for i in range(1,number + 1):  #  加总1到我们所输入的数字那就将所有数字遍历,同时保证输入数字在内即加一
-        sum_value += i  #实现数字和
-    print('number加和结果是:',sum_value)
+# 2. parameters of function
+def sum_numbers(number): 
+    sum_value = 0 
+    for i in range(1,number + 1):
+        sum_value += i 
+    print('The sum of numbers is :',sum_value)
 sum_numbers(10)
-# 重点在于遍历循环!!!!!!!
-# 函数的调用参数,即函数怎样接收多个参数,即为函数提供参数,做出不同的反应
-def introduce(name,gender): #逗号分隔,可以引入多个参数,
-    print(f'大家好,我的名字是{name},我是一名{gender}')
-introduce('小明','男生') #调用函数相应也应该该给予多个参数,但是要严格遵循顺序
-# 函数关键字实参:使用key = value的形式,提供多个实参,顺序不太重要
-def introduce(name,gender): # 参数较多,查找关键字参数,可以和上述的参数混合使用
-    print(f'大家好,我的名字是{name},我是一名{gender}')
-introduce(name = '小明',gender = '男生')
-introduce(gender = '女生',name = '小红')
-# 函数默认值参数:形参定义时,最后几个参数里,可以设置带默认值的参数
-def introduce(name,gender,age = 6):  #其中年龄就是默认参数
-    print(f'大家好,我的名字是{name},我是一名{gender},今年{age}岁')
-    # 调用参数默认参数可以不写值,如果不设置年龄值,那就默认六岁
-introduce('小明','男生')
-introduce('小花','女生',5) #设置一个不同的值覆盖默认值
+# multiple paremeters need follow the order
 
-# 上述介绍的多种函数传递参数的方法,有位置实参按顺序,关键字参数用键等于值的方法,默认参数可以不填也可以填的方法调用,以上的调用都可以用
-# 练习：类的模块的继承与不同模块的传递
+# 3. default parameters
+def introduce(name,gender,age = 6): 
+    print(f'my name is {name}, I'm a {gender}, and I'm {age} years old.')
+introduce('Tom','boy')
+introduce('Lily','girl',5)
 
-def compute(x,y,method = 'add'):  #字符串类型注意引号
-
-    if method == 'add':
-        print('相加结果为:',x + y)
-    elif method == 'sub':
-        print('相减结果为:',x - y)
-    elif method == 'mul':
-        print('相乘结果为:',x * y)
-    elif method == 'div':
-        print('相除结果为:',x / y)
-compute(x = 2,y = 7) #关键字实参是x,y,位置实参是2,7,这是有顺序的运算,已经规定了x,y
-compute(y = 9,x = 6) #同理,顺序运算,也是没有更改默认计算方法的参数
-compute(2,3,'div') # 数据参数,关键参数,这是无顺序运算,数字怎么排列计算都可以,但是更改了默认计算方法
-compute(x = 3,y = 3,method = 'mul') #这是更改了默认计算方法的参数,同时规定了计算顺序
-# 三种方式主要是实现对于数据的不同的控制,上文是只有两个数据,多个数据处理方法就不同了,例如下面的例子,实现所输入数字的从一到所输入数字与5的差
-
-# 函数的返回值：函数可以具有一个或者是一组值，将整个函数逻辑封装在函数中，简化整个程序运行
-# 函数返回单个值
+# 4. return
 def add(x,y):
-#     变化输入数据类型，即将其他数据转化成为整数
     x = int(x)
     y = int(y)
-# 函数的返回值即加上return即可
     return x + y
+result = add(7,8)  
+print(result)
 
-result = add(7,8)  #函数的赋值
-print('两个值相加的结果是：',result)
+
 # 函数返回字典
 students = {  #学生信息汇总
     'xiaoli' : {'id' : 101,'age' : 21,'height' : 189},
