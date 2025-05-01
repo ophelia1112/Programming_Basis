@@ -85,16 +85,3 @@ import documentname as dc / from documentname import function1, function2 / from
 the usage of lambda function is to define function directly
 example: sum = lambda x,y:x+y 
 
-
-
-# 列表排序方法：list.sort(key = None,reverse = False)   或者是  new_list = sorted(literable, key = None, reverse = False)
-# 在列表排序函数中，有一个key参数，这个参数就可以传入一个函数，指定排序的元素，此时用lambda函数就可以简化代码，下方例子，对学生数据按照成绩排序
-students_grades = [('xiaoming',89),('xiaoliu',90),('xiaozhang',78)]  #在这种情况下，用students_grades.sort()只会按照第一顺序排序
-students_grades.sort(key = lambda x:x[1]) #x是我们要比较的项目，即将列表中的元组当成x（可以更改），而我们要比较的是第一项，即名字是第零项，成绩是第一项，这样就可以针对列表中的多个元组数据进行指定项的排序与其他函数的作用
-new_list = sorted(students_grades, key = lambda x:x[1], reverse = True)
-print(students_grades)
-print(new_list)
-# lambda函数本身是一个简化的写法，也可以用函数代替，只不过步骤较多
-
-
-
