@@ -28,22 +28,21 @@ result = add(7,8)
 print(result)
 
 
-# 函数返回字典
-students = {  #学生信息汇总
-    'xiaoli' : {'id' : 101,'age' : 21,'height' : 189},
-    'xiaohua' : {'id' : 102,'age' : 20,'height' : 178},
-    'xiaozhang' : {'id' : 103,'age' : 23,'height' : 190},
+# 5. function and dict
+students = {  
+    'Tom' : {'id' : 101,'age' : 21,'height' : 189},
+    'Lily' : {'id' : 102,'age' : 20,'height' : 178},
+    'Alice' : {'id' : 103,'age' : 23,'height' : 190},
 }
 
-def get_student(name):  #此函数的目的就是让使用者输入函数调用相对应的字典数据
+def get_student(name): 
     if name in students:
-        return students[name]  #输入名字即调用数据
+        return students[name] 
     else:
         return None
 
-get_name = get_student('xiaoli')
+get_name = get_student('Tom')
 print(get_name)
-print(get_student('xiaozhang'))
 
 
 # 函数返回列表
