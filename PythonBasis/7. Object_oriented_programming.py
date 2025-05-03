@@ -1,4 +1,4 @@
-# 1. class 
+# 1. class(property and method)
 class Student: 
     def __init__(self,name,age):
         self.name = name
