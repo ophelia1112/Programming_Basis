@@ -1,14 +1,11 @@
 # 1. class 
 class Student: 
     def __init__(self,name,age):
-        # 这是类的构造方法，初始化实例自动调用，init前后两个下划线，其中self（特殊参数）是每个实例自身，后面是实例本身属性，方便使用这个对象的自己的属性与方法
-        # 初始化方法，普通实例变量，每个实例独有
         self.name = name
         self.age = age
 
     def introduce(self):
         return f'大家好。我叫{self.name},我今年{self.age}岁了'
-    # 类里面有属性也有方法，学生属性是name与age，方法就是introduce介绍自己
 
 # 初始化类的实例
 xiaoming = Student('小明',18)  #类的名字和属性
