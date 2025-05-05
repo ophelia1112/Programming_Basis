@@ -10,7 +10,6 @@ class Student:
 xiaoming = Student('小明',18) 
 xiaozhang = Student('小张',17)
 xiaozhao = Student('小赵',19)
-# 在编程中，使用对象.属性来访问对象的属性，使用对象.方法来使用方法
 print(xiaoming.name,xiaoming.age,xiaoming.introduce())
 print(xiaozhang.name,xiaozhang.age,xiaozhang.introduce())
 print(xiaozhao.name,xiaozhao.age,xiaozhao.introduce())
