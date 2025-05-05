@@ -34,7 +34,7 @@ print(huaweip50.model,huaweip50.price,huaweip50.describe(),huaweip50.call_friend
 
 # 修改类的对象的属性
 class StudentGrades:
-    def __init__(self,name,yuwen,shuxue):  #三个属性
+    def __init__(self,name,yuwen,shuxue):  
         self.name = name
         self.yuwen = yuwen
         self.shuxue = shuxue
