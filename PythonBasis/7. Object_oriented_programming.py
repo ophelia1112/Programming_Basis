@@ -7,7 +7,7 @@ class Student:
     def introduce(self):
         return f'大家好。我叫{self.name},我今年{self.age}岁了'
 
-xiaoming = Student('小明',18)  #类的名字和属性
+xiaoming = Student('小明',18) 
 xiaozhang = Student('小张',17)
 xiaozhao = Student('小赵',19)
 # 在编程中，使用对象.属性来访问对象的属性，使用对象.方法来使用方法
