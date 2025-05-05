@@ -13,7 +13,6 @@ xiaozhao = Student('小赵',19)
 print(xiaoming.name,xiaoming.age,xiaoming.introduce())
 print(xiaozhang.name,xiaozhang.age,xiaozhang.introduce())
 print(xiaozhao.name,xiaozhao.age,xiaozhao.introduce())
-# 上方是类以及类下面的函数，键入信息，调用类的属性与方法
 
 # 类和对象的练习题
 class Phone:
