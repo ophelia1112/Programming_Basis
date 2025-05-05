@@ -7,7 +7,6 @@ class Student:
     def introduce(self):
         return f'大家好。我叫{self.name},我今年{self.age}岁了'
 
-# 初始化类的实例
 xiaoming = Student('小明',18)  #类的名字和属性
 xiaozhang = Student('小张',17)
 xiaozhao = Student('小赵',19)
