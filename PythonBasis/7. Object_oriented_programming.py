@@ -14,7 +14,6 @@ print(xiaoming.name,xiaoming.age,xiaoming.introduce())
 print(xiaozhang.name,xiaozhang.age,xiaozhang.introduce())
 print(xiaozhao.name,xiaozhao.age,xiaozhao.introduce())
 
-# 类和对象的练习题
 class Phone:
     def __init__(self,model,price):
         self.model = model
