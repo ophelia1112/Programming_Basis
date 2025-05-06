@@ -9,7 +9,7 @@ class Student:
 
 xiaoming = Student('Tom',18) 
 xiaozhang = Student('Lily',17)
-xiaozhao = Student('小赵',19)
+xiaozhao = Student('Amy',19)
 print(xiaoming.name,xiaoming.age,xiaoming.introduce())
 print(xiaozhang.name,xiaozhang.age,xiaozhang.introduce())
 print(xiaozhao.name,xiaozhao.age,xiaozhao.introduce())
