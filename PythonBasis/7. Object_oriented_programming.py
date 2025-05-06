@@ -8,7 +8,7 @@ class Student:
         return f'我叫{self.name},我今年{self.age}岁了'
 
 xiaoming = Student('Tom',18) 
-xiaozhang = Student('小张',17)
+xiaozhang = Student('Lily',17)
 xiaozhao = Student('小赵',19)
 print(xiaoming.name,xiaoming.age,xiaoming.introduce())
 print(xiaozhang.name,xiaozhang.age,xiaozhang.introduce())
