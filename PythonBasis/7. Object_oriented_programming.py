@@ -7,7 +7,7 @@ class Student:
     def introduce(self):
         return f'我叫{self.name},我今年{self.age}岁了'
 
-xiaoming = Student('Tom',18) 
+Tom = Student('Tom',18) 
 xiaozhang = Student('Lily',17)
 xiaozhao = Student('Amy',19)
 print(xiaoming.name,xiaoming.age,xiaoming.introduce())
