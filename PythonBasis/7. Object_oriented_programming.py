@@ -52,7 +52,7 @@ xiaoming.update('数学',96)
 print(xiaoming.yuwen,xiaoming.shuxue) #打印的时候直接命名加属性就可以访问
 
 # 类的对象可以放在列表和字典里
-xiaoming = StudentGrades('小明',88,99) #对应上方代码的语文成绩与数学成绩
+xiaoming = StudentGrades('小明',88,99) 
 xiaozhang = StudentGrades('小张',87,93)
 xiaozhao = StudentGrades('小赵',88,90)
 
