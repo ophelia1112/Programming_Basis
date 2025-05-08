@@ -44,7 +44,7 @@ class StudentGrades:
         elif course == 'shuxue':
             self.shuxue = grade
 xiaoming = StudentGrades('小明',88,99)
-xiaoming.yuwen = 89 #修改属性值，用.直接访问属性本身进行修改
+xiaoming.yuwen = 89 
 xiaoming.shuxue = 96
 print(xiaoming.yuwen,xiaoming.shuxue)
 xiaoming.update('语文',88) #也可以借助函数，即update
