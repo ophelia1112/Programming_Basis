@@ -5,7 +5,7 @@ class Student:
         self.age = age
 
     def introduce(self):
-        return f'我叫{self.name},我今年{self.age}岁了'
+        return f'{self.name},我今年{self.age}岁了'
 
 Tom = Student('Tom',18) 
 Lily = Student('Lily',17)
@@ -38,7 +38,7 @@ class StudentGrades:
         self.name = name
         self.yuwen = yuwen
         self.shuxue = shuxue
-    def update(self,course,grade): #普通更新函数，构造函数进行值的修改
+    def update(self,course,grade): 
         if course == 'yuwen':
             self.yuwen = grade
         elif course == 'shuxue':
