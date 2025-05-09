@@ -15,15 +15,17 @@ print(Lily.name,Lily.age,Lily.introduce())
 
 # 2. change the property of the class
 class StudentGrades:
-    def __init__(self,name,yuwen,shuxue):  
+    def __init__(self,name,math,english):  
         self.name = name
-        self.yuwen = yuwen
-        self.shuxue = shuxue
+        self.math = math
+        self.english = english
+        
     def update(self,course,grade): 
-        if course == 'yuwen':
-            self.yuwen = grade
-        elif course == 'shuxue':
-            self.shuxue = grade
+        if course == 'math':
+            self.math = grade
+        elif course == 'english':
+            self.english = grade
+ ######           
 xiaoming = StudentGrades('小明',88,99)
 xiaoming.yuwen = 89 
 xiaoming.shuxue = 96
