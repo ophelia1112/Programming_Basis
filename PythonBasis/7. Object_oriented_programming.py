@@ -13,25 +13,7 @@ print(Tom.name,Tom.age,Tom.introduce())
 print(Lily.name,Lily.age,Lily.introduce())
 
 
-class Phone:
-    def __init__(self,model,price):
-        self.model = model
-        self.price = price
-
-    def describe(self):
-        return f'这是{self.model}手机，价格是{self.price}'
-    def call_friend(self,friend_name):
-        return f'我在用手机{self.model}打电话给{friend_name}' #再加一个self防止变红
-
-iphone13 = Phone('苹果13',6000)
-huaweip50 = Phone('华为P50',4000)
-
-
-
-print(iphone13.model,iphone13.price,iphone13.describe(),iphone13.call_friend('小李'))
-print(huaweip50.model,huaweip50.price,huaweip50.describe(),huaweip50.call_friend('黎明'))
-
-# 修改类的对象的属性
+# 2. change the property of the class
 class StudentGrades:
     def __init__(self,name,yuwen,shuxue):  
         self.name = name
