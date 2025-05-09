@@ -5,14 +5,13 @@ class Student:
         self.age = age
 
     def introduce(self):
-        return f'{self.name},我今年{self.age}岁了'
+        return f'My name is {self.name},and I'm {self.age} years old.'
 
 Tom = Student('Tom',18) 
 Lily = Student('Lily',17)
-Amy = Student('Amy',19)
-print(xiaoming.name,xiaoming.age,xiaoming.introduce())
-print(xiaozhang.name,xiaozhang.age,xiaozhang.introduce())
-print(xiaozhao.name,xiaozhao.age,xiaozhao.introduce())
+print(Tom.name,Tom.age,Tom.introduce())
+print(Lily.name,Lily.age,Lily.introduce())
+
 
 class Phone:
     def __init__(self,model,price):
