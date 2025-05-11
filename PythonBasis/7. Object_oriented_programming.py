@@ -26,7 +26,7 @@ class StudentGrades:
         elif course == 'english':
             self.english = grade
  ######           
-xiaoming = StudentGrades('小明',88,99)
+Tom = StudentGrades('Tom',88,99)
 xiaoming.yuwen = 89 
 xiaoming.shuxue = 96
 print(xiaoming.yuwen,xiaoming.shuxue)
