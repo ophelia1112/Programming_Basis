@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type='text/javascript' src="jquery-3.7.1.js"></script>
+    <!--script type="text/javascript">
+        原始js脚本
+        例如
+        window.onload=function(){
+            var testarea=document.getElementById('testarea');
+            testarea.style.color='red';
+        }
+    </script-->
+    <script>
+        //使用jquery
+        //read()为文档就绪方法，页面加载完成之后执行参数，即函数
+        $(document).ready(function(){
+            $('#testarea').css('font-size','20px');
+            $('#testarea').css('background-color','red');
+            //可以直接缩写$(function(){})
+            //$=jQuery,$冲突会调用定义的$函数，当冲突时，进行替换例如⬇
+            //const jq=$.noConflict() 当你定义这个之后没有冲突的情况下$也不能用了
+            //会进行隐式迭代
+            //$(function(){
+            // $('input').click(function){
+            // console.log(this.value)});
+            // })
+        })
+    </script>
+    <!--
+    DOM对象和jquery对象的转换
+    $(function){
+        const domobject=document.getElementById('testarea');
+        DOM属性
+        console.log(domobject.innerHTML);
+        将DOM对象转换为jquery对象
+        const jqueryobject=$(domobject);
+        console.log(jqueryobject.html())
+    }
+    将jquery对象转换为dom对象
+    const jqueryobject=$('#testarea'); 获取的为数组，数组中只有一个数据
+    按照数组的索引将数组中的数据取出来就已经转换成为DOM对象
+    const domproject=jqueryobject[0]
+    更改数据
+    jqueryarea.html('changedata')
+    -->
+
+    <!--读取与设置使用同一个方法-->
+    <script type='text/javascript'>
+        $(function() {
+            $('#btn1').click(function () {
+                //console.log($("#content").html());
+                console.log($("#content").val());
+            });
+            $('#btn2').click(function () {
+                //$("#content").html('设置的内容')
+                //$('#content').css("color","red")
+                $(this).val('读取内容的值的修改');
+            });
+        });
+    </script>
+    <!--链式操作-->
+    <script type="text/javascript">
+        $(function(){
+            $('#btn3').click(function(){
+                /*$(this).css('color','red');
+                $(this).html('链式操作');
+                $(this).css('background-color','green');
+                $(this).width(300);
+                $(this).height(300);
+                这一串可以改为
+                */
+                //$(this).html('链式操作').css('color','red').css('font-size','20px').css('background-color','green').width(20).height(20)
+                $(this).html('chain operate').css({
+                    color:'green',
+                    fontSize:'20px',
+                    fontWeight:'bold',
+                    fontStyle:'italic',
+                    fontFamily:'Arial',
+                    border:'1px solid red',
+                }).width(150).height(20);
+            });
+        })
+    </script>
+    <!--选择器
+    选择器根据选择的内容，例如ID $("#id") 分为基础选择器与过滤选择器
+    基本选择器
+    #id 根据ID匹配，形成单个元素的集合
+    .class 根据类匹配，返回集合元素
+    element 根据元素名称匹配，返回集合元素
+    * 匹配所有元素，返回集合元素
+    selector1... 将每一个选择器匹配到的元素合并后一起返回，返回集合元素
+    -->
+    <script type="text/javascript">
+        $(function(){
+            //id selector
+            $('#bn1').click(function(){
+                $(this).css('background-color','green');
+            });
+            // tag selector
+            $("#bn3").click(function(){
+                $('div').css('background-color','pink');
+            })
+            //class selector
+            $('#bn2').click(function(){
+                $(this).css('background-color','red');
+            })
+            //contain selector
+            $('#bn4').click(function(){
+                $('#id-selector,.class-selector').css('background-color','yellow');
+            })
+            //cross selector
+            $('#bn5').click(function(){
+                $('p #content').css('background-color','blue');
+            })
+            //all selector
+            $('#bn6').click(function(){
+                $('*').css('background-color','yellow');
+            })
+        })
+    </script>
+
+    <!--层次选择器-->
+    <!--后代选择器decendant-->
+    <script type="text/javascript">
+        $(function(){
+            $('#bn7').click(function(){
+            //$('div#first div').css('background-color','yellow');
+            //$('div#first p span').css('background-color','blue');
+                $('div#first span').css('background-color','pink')
+            })
+            $('#bn8').click(function(){
+                //子选择器，直接后代
+                $('div#first>span').css('background-color','yellow')
+            })
+            $('#bn9').click(function(){
+                //相邻选择器
+                $('div#first+div').css('background-color','pink')
+            })
+            $('#bn10').click(function(){
+                //兄弟选择器
+                $('div#first~div').css('background-color','yellow')
+            })
+
+        })
+
+    </script>
+<!--基本过滤选择器-->
+    <script type="text/javascript">
+        $(function(){
+            $('#bn11').click(function(){
+                //选择第一个元素，可以指定区域
+                $('span:first').css('background-color','yellow')
+            })
+            $('#bn12').click(function(){
+                //选择最后一个元素
+                $('p:last').css('background-color','pink')
+            })
+            //选择某一类元素
+            $('#bn13').click(function(){
+                $('.third').css('background-color','yellow')
+            })
+            //除了这一类元素都选
+            $('#bn14').click(function(){
+                $(':not(.third)').css('background-color','pink')
+            })
+            $('#bn15').click(function(){
+                //索引为双数
+                $('span:even').css('background-color','yellow')
+            })
+            $('#bn16').click(function(){
+                //索引为奇数
+                $('span:odd').css('background-color','pink')
+                //双数奇数可以做表格处理
+                //$('table:even').css('background-color','pink')
+                //$('table:odd').css('background-color','blue')
+            })
+            //选择索引小于2的span
+            $('#bn17').click(function(){
+                $('span:lt(2)').css('background-color','yellow')
+            })
+            //选择索引大于2的span
+            $('#bn18').click(function(){
+                $('span:gt(2)').css('background-color','yellow')
+            })
+            //选择索引等于1的span
+            $('#bn19').click(function(){
+                $('span:eq(1)').css('background-color','yellow')
+            })
+            //组合使用选择标题
+            $('#bn20').click(function(){
+                $(':header:first').css('background-color','pink')
+            })
+        })
+    </script>
+    <!--内容过滤选择器-->
+    <script type="text/javascript">
+        $(function(){
+            $('#bn21').click(function(){
+                //一定要空格大范围寻找
+                $('body :contains(artificial intelligence)').css('background-color','pink')
+                //组合使用
+                //$('p :contains(srtificial intelligence):last').css('backgrounnd-color','pink')
+            })
+            //选择空元素
+            $('#bn22').click(function(){
+                $('p:empty').css('background-color','yellow').html('used to be a empty p')
+            })
+            //选择具有特定id的元素
+            $('#bn23').click(function(){
+                $('div:has(#1)').css('background-color','pink')
+            })
+            //选择非空子元素
+            $('#bn24').click(function(){
+                $('div:parent').css('background-color','yellow')
+            })
+        })
+    </script>
+    <!--属性过滤选择器-->
+    <script type="text/javascript">
+        $(function(){
+            $('#bn25').click(function(){
+                // 选择包含某一属性的所有元素
+                $('[class]').css('background-color','pink')
+                //如果选择包含某一属性的网页标签
+                //$('div[class]').css('background-color','blue')
+                //即有类属性的div,过滤选择
+            })
+            $('#bn26').click(function(){
+                $('div[class=1]').css('background-color','yellow')
+            })
+            $('#bn27').click(function(){
+                $('div[class!=1]').css('background-color','pink')
+            })
+            $('#bn28').click(function(){
+                $('div[class^=1]').css('background-color','yellow')
+            })
+            $('#bn29').click(function(){
+                $('div[class$=or]').css('background-color','pink')
+            })
+            $('#bn30').click(function(){
+                $('div[id*=1]').css('background-color','yellow')
+            })
+            $('#bn31').click(function(){
+                //某一个标签元素带有多种属性
+                $('div[class=1][class][id^=1]').css('background-color','pink')
+            })
+        })
+    </script>
+    <script type="text/javascript">
+        $(function(){
+            //可见性过滤选择器
+            $('#bn32').click(function(){
+                $('div:visible').css('background-color','yellow')
+            })
+            $('#bn33').click(function() {
+                $('div:hidden').css({
+                    display: "block",
+                    background: 'pink'
+                })
+            })
+        })
+    </script>
+    <!--表单选择器-->
+    <script type="text/javascript">
+        $(function(){
+            $('#bn34').click(function(){
+                //选择所有的input后面的内容，记得form后面加空格
+                $('form :input').css('background-color','yellow')
+                //表单选择器还可以选择:text :password :radio :checkbox
+                // :submit :image :reset :button :file :hidden
+                // :enabled :disabled :checked :selected
+            })
+            //针对表单，有时选择的事物较多，需要进行遍历
+            //jquery提供工具函数
+            //$.each(radios,function(index,item){
+            //      console.log(index+":"+$(item.val()))
+            // })
+        })
+    </script>
+    <!--绑定事件的方式-->
+    <script type="text/javascript" src="jquery-3.7.1.js">
+        $('#bn35').on({
+            click: function(){
+             $('#third').css('background-color','yellow')
+            },
+            mouseover: function(){
+                $('#third').css('background-color','pink')
+            }
+        })
+        //hover() mouseover mouseout组合
+        $('#bn36').hover(function(){
+            $('#third').css('background-color','yellow')
+        },function(){
+            $('#third').css('background-color','pink')
+        })
+    </script>
+    <!--节点操作-->
+    <script type="text/javascript" src="jquery-3.7.1.js">
+        function addli(){
+            //创建节点
+            var li1=$('<li>4</li>')
+            //添加节点
+            $('ul').append(li1)
+            //li.appendTo($('ul'))
+            //$('ul').prepend(li)
+            //li.prependTo($('ul'))
+            //标签后面插入而非内部  $('ul').after(p)
+        }
+        //删除节点
+        function deleteli(){
+            $('ul li:first').remove();
+            //清空节点
+            //$('ul li:first').empty()
+        }
+        //克隆节点
+        //.clone()
+        //替换节点
+        //replaceWith()
+        //replaceAll()是前面是要换的内容后面是被替换的内容
+
+    </script>
+    <style >
+        #mydiv{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+    <!--显示与隐藏-->
+    <script type="text/javascript">
+        $(function(){
+            //显示隐藏
+            $('#bn37').click(function(){
+                $('#mydiv').hide(3000)
+            });
+            $('#bn38').click(function(){
+                $('#mydiv').show('slow')
+            })
+            //淡入淡出
+            $('#bn39').click(function(){
+                $('#mydiv').fadeOut(2000)
+            })
+            $('#bn40').click(function(){
+                $('#mydiv').fadeIn(2000)
+            })
+            $('#bn41').click(function(){
+                $('#mydiv').slideUp(2000)
+            })
+            //滑上滑下
+            $('#bn42').click(function(){
+                $('#mydiv').slideDown(2000)
+            })
+            //自定义动画
+           $('#bn43').click(function(){
+               $('#mydiv').animate({
+                   width: '200px',
+                   height: '200px',
+                   background: 'blue'
+               })
+           })
+
+        })
+
+    </script>
+</head>
+<body>
+
+<!--基本选择器-->
+ <div id="testarea">
+     div test
+ </div>
+ <input type="button" value="read" id="btn1">
+  <input type="button" value="set" id="btn2">
+ <input type="button" value="chain elements" id="btn3">
+ <input type="button" value="read" id="btn4">
+<p id="content">读取到的数据</p>
+
+
+ <input type="button" value="id selector" id="bn1">
+ <input type="button" value="class selector" id="bn2">
+ <input type="button" value="tag selector" id="bn3">
+ <input type="button" value="contain selector" id="bn4">
+ <input type="button" value="cross selector" id="bn5">
+  <input type="button" value="all selector" id="bn6">
+
+
+ <div id="id-selector">selected by id</div>
+ <div class="class-selector">selected by class</div>
+ <div class="class-selector">selected by class</div>
+
+
+<!--层次选择器-->
+<input type="button" value="descendants-selector" id="bn7">
+<input type="button" value="kids-selector" id="bn8">
+<input type="button" value="neighbor-selector" id="bn9">
+<input type="button" value="brothers-selector" id="bn10">
+<hr>
+<div id="first">
+    <p>
+        <span>span1</span>
+        <span>span2</span>
+    </p>
+    <span>this span is out of p</span>
+    <div>this div is lying in the div which id is first rather than in the p</div>
+</div>
+
+<div class="second">
+    <p>
+        <span>span1</span>
+        <span>span2</span>
+    </p>
+</div>
+<!--基本过滤选择器-->
+<input type="button" value="choose first span" id="bn11">
+<input type="button" value="choose last p" id="bn12">
+<input type="button" value="choose div which class is third" id="bn13">
+<input type="button" value="choose all div which class are not third" id="bn14">
+<input type="button" value="choose all elements which index is even" id="bn15">
+<input type="button" value="choose all elements which index is odd" id="bn16">
+<input type="button" value="choose elements which index less than 2" id="bn17">
+<input type="button" value="choose elements which index greater than 1" id="bn18">
+<input type="button" value="choose elements which index equal to 1" id="bn19">
+<input type="button" value="choose all headers" id="bn20">
+<hr>
+<span>span1</span>
+<span>span2</span>
+<p>p1</p>
+<p>p2</p>
+<div class="third">div which class is third</div>
+<div>div which no class</div>
+<h1>hi</h1>
+<h2>hi</h2>
+<h3>hi</h3>
+<h4>hi</h4>
+<h5>hi</h5>
+<hr>
+<!--内容过滤选择器-->
+<input type="button" value="choose the module which contains 'artificial intelligence'" id="bn21">
+<input type="button" value="choose empty elements" id="bn22">
+<input type="button" value="choose elements which contain special id" id="bn23">
+<input type="button" value="choose all elements which not empty" id="bn24">
+
+<p>this is content</p>
+<p>the content consistes of words</p>
+<p>the content is real for artificial intelligence</p>
+<p>what a fantistic phenomena of artificial intelligence</p>
+<p></p>
+<p></p>
+<p>try it for a fun</p>
+
+<div id="1">1</div>
+<div>2</div>
+<div>3</div>
+<hr>
+<!--属性过滤选择器-->
+<input type="button" value="choose elements contain a kind of property " id="bn25">
+<input type="button" value="choose elements which property values are special values" id="bn26">
+<input type="button" value="choose elements which property values are not special values in 26" id="bn27">
+<input type="button" value="choose elements which property values are begin with special words" id="bn28">
+<input type="button" value="choose elements which property values are end with special words" id="bn29">
+<input type="button" value="choose elements which property values, for example contains 1" id="bn30">
+<!--并集-->
+<input type="button" value="choose element contains various properties " id="bn31">
+<div id="forth">
+    4
+</div>
+<div class="1">
+    5
+</div>
+<hr>
+<!--可见性过滤选择器-->
+<input type="button" value="choose elements which are unvisible" id="bn32">
+<input type="button" value="choose elements which are visible" id="bn33">
+
+<div>
+    6
+</div>
+<div style="display: none">
+    7 not visible
+</div>
+<hr>
+<!--表单选择器-->
+<input type="button" value="choose ':input' in the form" id="bn34" >
+<input type="button" value="">
+<input type="button" value="">
+<input type="button" value="">
+<input type="button" value="">
+<input type="button" value="">
+<input type="button" value="">
+<input type="button" value="">
+
+<form action="">
+    user:<input type="text"><br>
+    password:<input type="password"><br>
+    sex:<input type="radio" name="">male<input type="radio" name="">female<br>
+    birthday:<input type="date"><br>
+    headphoto:<input type="file" name=" " id=""><br>
+    <input type="submit">
+    <input type="reset">
+
+</form>
+
+
+<!--jquery中的事件与DOM操作
+1、事件封装
+.click(function(){})
+.mouseover()
+.mouseout()
+.keydown() 按下
+.keyup() 弹起来
+.keypress() 打印字符（按键得知按键值需要对应按键的数值
+.focus() 获得焦点
+.blur() 失去焦点
+
+
+2、绑定事件方式
+on()
+-->
+<hr>
+<input type="button" value="the ways of bonding events" id="bn35">
+<input type="button" value="the hover function" id="bn36">
+<div id="third">
+    9
+</div>
+
+<!--内容操作
+$().html()对网页中的内容进行修改，取出内容时是整个标签
+$().text()对网页中的内容进行更改，取出时是标签内容
+$().val()为表单赋值
+$().attr()获取属性并为属性赋值
+-->
+
+<!--节点操作-->
+<input type="button" value="click the button the content added" onclick="addli()">
+<input type="button" value="delete element" onclick="deleteli()">
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+</ul>
+
+<!--遍历元素
+.children() 只取子元素
+.parent() 取父辈
+.parents() 取祖先
+.next()下一个同辈元素
+.prev()前一个同辈元素
+.siblings()同胞元素
+遍历元素并输出见前遍历函数
+-->
+
+
+<!--动画-->
+<!--显示与隐藏
+淡入淡出
+滑上滑下
+-->
+
+<input type="button" value="hidden" id="bn37">
+<input type="button" value="express" id="bn38">
+<input type="button" value="slow out" id="bn39">
+<input type="button" value="slow in" id="bn40">
+<input type="button" value="slideup" id="bn41">
+<input type="button" value="slidedown" id="bn42">
+<input type="button" value="self-animate" id="bn43">
+<div id="mydiv">
+</div>
+
+<!--插件-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
