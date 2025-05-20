@@ -1,14 +1,20 @@
-# 1 HTML(hyper text markup language)超文本标记语言
-# bingo可以整理不同的资源网址放在自己的网站以供使用
-# 文档结构
-"""
-尖括号圈关键词，成对出现，例如<td></td>
-根标签 <html></html>，二者之间包含<head></head>头部，<body></body>身体
+# 1 HTML(hyper text markup language)
+<html>
+<head>
+</head>
+<body>
+    <div>
+  
+   
+   </div>
+</body>
+
+</html>
+
 头部提供关于网页的信息（标题title，文档类型，字符编码，关键字等摘要）：
 title里面的中文编码，需要用meta指定参数，meta charset='utf-8'或者gbk
 正文在body部分，主体部分提供网页内容
-网页内容缩进
-"""
+网页内容缩
 
 """
 标签组成
