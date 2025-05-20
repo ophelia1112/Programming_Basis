@@ -1,20 +1,19 @@
 # 1 HTML(hyper text markup language)
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <link rel="stylesheet" href="index.css">
+
 </head>
 <body>
-    <div>
-  
-   
-   </div>
-</body>
 
+
+</body>
 </html>
 
-头部提供关于网页的信息（标题title，文档类型，字符编码，关键字等摘要）：
-title里面的中文编码，需要用meta指定参数，meta charset='utf-8'或者gbk
-正文在body部分，主体部分提供网页内容
-网页内容缩
 
 """
 标签组成
